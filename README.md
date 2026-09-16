@@ -1,4 +1,4 @@
-# Industrial Vibration Monitoring System
+# 2026 全国大学生嵌入式芯片与系统设计竞赛 FPGA 项目 AMD 赛道
 
 基于 Zynq 的旋转机械振动信号采集、分析与状态监测系统。
 
