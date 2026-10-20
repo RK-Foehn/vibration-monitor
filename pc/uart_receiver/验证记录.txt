@@ -1,0 +1,25 @@
+验证日期：2026-10-20
+环境：本机 Windows，Python 3.13，pyserial 3.5。
+pyserial 测试依赖仅安装在工作区 work/pc_uart_deps，通过 PYTHONPATH 使用。
+用户正式串口运行前按使用说明安装 requirements.txt；演示无第三方依赖。
+
+unittest：11/11 PASS
+1. 35位平方和和独立诊断标志
+2. 每字节分片与空读取（超时）不破坏行
+3. 模拟输入字段与数据源标记
+4. 不覆盖已有目录
+5. 未换行的末行不误写入CSV
+6. 缺少表头时拒收
+7. 超长行拒收后恢复
+8. pyserial loop:// 软件回环
+9. 乱码、列数、范围、物理边界及有效标志校验
+10. Hello启动标记清除旧元数据和序号比较
+11. 回绕、重复、序号间隔和复位/乱序歧义提示
+
+命令行演示：accepted=5, rejected=0。
+原始文件回放：accepted=5, rejected=0。
+示例文件位于 example_simulated/，全部为模拟数据。
+
+未验证：真实COM口、USB-UART驱动、实际波特率、板卡输出、
+USB断开时真实驱动行为、真实PL数据、完整Vitis BSP工程。
+该工具不提供无损传输保证；原串口协议没有CRC或重传机制。
