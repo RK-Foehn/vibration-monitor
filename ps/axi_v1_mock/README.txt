@@ -33,7 +33,8 @@ C99、-Wall -Wextra -Werror 编译为目标文件。
 测试使用 ARM GCC 12.2.0 + Unicorn 2.1.4 + pyelftools 0.33。
 覆盖无结果、非法参数、更新后重试成功、重试耗尽且保持输出、
 有效标志丢失、序号回绕、重复/跳过窗口、35位组合及独立诊断字段。
-UART main 尚未使用真实 BSP 编译或上板，串口输出尚未实际验证。
+2026-10-21：已使用队长的 PS-only XSA 生成真实 standalone BSP，完整编译得到 uart_mock.elf。
+尚未上板，串口和候选DDR尚未实际验证。平台构建说明见 ../ps_only_platform/。
 目标文件编译通过不代表 Vitis 完整工程、AXI RTL 或硬件验证通过。
 代码与测试同步到团队仓库 ps/uart-demo 分支，未推送远程或合并 main。
 

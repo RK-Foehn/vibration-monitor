@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-21",
+  "vitis": "2023.2 Unified",
+  "cpu": "ps7_cortexa9_0",
+  "os": "standalone",
+  "domain": "standalone_a9",
+  "platform_build_result": 0,
+  "hello_build_result": 0,
+  "mock_build_result": 0,
+  "process_exit_code": 0,
+  "stdout_base": "0xe0000000",
+  "board_test": "NOT_RUN",
+  "DDR": "CANDIDATE_UNVALIDATED",
+  "artifacts": [
+    {
+      "file": "ps7_init.tcl",
+      "bytes": 26573,
+      "sha256": "d10a005194a1a3ebf009c5e111cba3c0dbc3e6a04d8f30f23278cf7af6a11711"
+    },
+    {
+      "file": "uart_hello.elf",
+      "bytes": 224812,
+      "sha256": "1dc7c0f191e071690ef53d979eb54f5838453e87a0be1d816c0ce5cf1e88e33a",
+      "entry": "0x100000"
+    },
+    {
+      "file": "uart_mock.elf",
+      "bytes": 231780,
+      "sha256": "531d7cb01912485dc51e2fa59c65b3561c8da4055d5d942a48273e67041684c6",
+      "entry": "0x100000"
+    }
+  ]
+}

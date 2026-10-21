@@ -16,7 +16,7 @@
 2. 按 `docs/board_and_setup.md` 创建 Vitis 平台、standalone 域和 Hello World 应用。
 3. 保留示例的 `platform.c`、`platform.h`、链接脚本及 BSP，用 `src/main.c` 替换示例中已有的 main 源文件。
 4. `DEMO_ENABLE_XYZ=0` 时仅打印 Hello；默认值 1 时继续打印模拟数据。
-5. 确认 BSP stdout 为物理 UART1，并将实际波特率与电脑终端统一为 115200、8N1、无流控。
+5. 确认 BSP stdout 为物理 UART0，并将实际波特率与电脑终端统一为 115200、8N1、无流控。
 6. 等共同使用开发板时进行 JTAG 下载、串口采集和记录。
 
 数据示例（预期格式，非实测）：

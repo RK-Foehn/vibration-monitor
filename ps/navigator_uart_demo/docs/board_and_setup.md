@@ -10,7 +10,7 @@ http://www.openedv.com/docs/boards/FPGA/zdyz_linhanz.html
 | 项目 | 资料依据与结论 |
 | --- | --- |
 | 器件 | 用户确认 XC7Z020CLG400-2；Vivado part 名应核对为 xc7z020clg400-2 |
-| PS UART | 核心板原理图第 4 页：MIO14/C5 为 UART_RXD，MIO15/C8 为 UART_TXD；对应 PS UART1 路由 |
+| PS UART | 核心板原理图第 4 页：MIO14/C5 为 UART_RXD，MIO15/C8 为 UART_TXD；对应 PS UART0 路由 |
 | PS 参考时钟 | 同页 X2 为 33.333333 MHz；不能把 PL 的 50 MHz 填入 PS 输入时钟 |
 | MIO 电压 | 核心板原理图：Bank500 为 3.3 V，Bank501 为 1.8 V |
 | DDR | 核心板原理图第 8 页及规格书第 14 页：7020 版两片 NT5CC256M16，32-bit 总线、合计 1 GB；具体时序和走线补偿仍须使用匹配厂商配置或已验证 XSA |
@@ -31,9 +31,9 @@ https://www.amd.com/en/support/downloads/adaptive-socs-and-fpgas/development-too
 
 ## 硬件平台输入
 
-优先索取队长在 Vivado 2023.2 导出的、含 Zynq PS 的 XSA，以及 PS 配置截图或生成脚本。核对 UART1=MIO14..15、PS 输入时钟、DDR 型号/宽度/容量/时序、Bank 电压与板卡版本。
+优先索取队长在 Vivado 2023.2 导出的、含 Zynq PS 的 XSA，以及 PS 配置截图或生成脚本。核对 UART0=MIO14..15、PS 输入时钟、DDR 型号/宽度/容量/时序、Bank 电压与板卡版本。
 
-如果现有工程只有 PL，需由持有 Vivado 的电脑创建最小 Zynq PS 硬件平台：选择准确器件，添加 ZYNQ7 Processing System，使用匹配领航者 7020 的厂商 PS 配置，启用 UART1 路由并检查 DDR/时钟，验证设计后导出 XSA。不要选 ZC702、ZedBoard 或 PYNQ 的预设代替。DDR 时序、频率和板级延迟不可仅凭容量猜填。
+如果现有工程只有 PL，需由持有 Vivado 的电脑创建最小 Zynq PS 硬件平台：选择准确器件，添加 ZYNQ7 Processing System，使用匹配领航者 7020 的厂商 PS 配置，启用 UART0 路由并检查 DDR/时钟，验证设计后导出 XSA。不要选 ZC702、ZedBoard 或 PYNQ 的预设代替。DDR 时序、频率和板级延迟不可仅凭容量猜填。
 
 第一阶段 UART 走 PS MIO，不需要自定义 AXI 外设。纯 PS 工程可按 AMD 教程采用不含 bitstream 的 XSA；若后续使用带 PL 的整体平台，应以队长提供的配套文件为准。MIO 不用在 PL 的 XDC 中重新约束。
 
@@ -43,7 +43,7 @@ https://www.amd.com/en/support/downloads/adaptive-socs-and-fpgas/development-too
 
 1. 建立独立英文路径工作区，例如 `vitis_workspace/navigator_ps`。不要把 IDE 生成目录直接放进受版本控制的源码目录。
 2. 创建 Platform Component，选择 Hardware Design/XSA 文件。
-3. 处理器选 `ps7_cortexa9_0`，操作系统选 `standalone`。创建并构建平台；检查域的 BSP 配置，将 stdin/stdout 指向物理 `ps7_uart_1` 或其在该版本生成的对应名称。
+3. 处理器选 `ps7_cortexa9_0`，操作系统选 `standalone`。创建并构建平台；检查域的 BSP 配置，将 stdin/stdout 指向物理 `ps7_uart_0` 或其在该版本生成的对应名称。
 4. 在 Examples 中选择 Hello World，创建 Application Component，关联上述平台和 standalone 域。不要选择 Linux 应用或硬件加速平台示例。
 5. 先构建原始 Hello World，确认 XSA/BSP/工具链可用，再替换 main 源文件。保留模板的 `platform.c`、`platform.h`、链接脚本和构建描述；删除/排除原来含 main 的示例源文件，防止重复定义。
 6. 构建 `DEMO_ENABLE_XYZ=0` 的 Hello 版本，再构建默认值 1 的模拟数据版本。保存完整构建日志；检查 ELF 是 Cortex-A9 裸机目标。
@@ -61,7 +61,7 @@ https://www.amd.com/en/support/downloads/adaptive-socs-and-fpgas/development-too
 6. 默认版本连续观察至少 60 秒；记录实际持续时间和行数，保存日志并运行校验工具。时间需要独立记录，不能只靠行数推算。首次验收不写 QSPI/eMMC/SD 启动镜像。
 7. 完成后按约定恢复共用板卡设置；分别记录 PS 程序版本与队长 PL 工程版本。
 
-常见故障：无 COM 口先查 USB 数据线与 CH340 驱动；能运行但无字查 P5、UART1 路由和 stdout；乱码查双方波特率与 PS 时钟；停在 main 前查 JTAG 连接、启动流程及 DDR 初始化；重复 main 错误查是否保留了两份示例主程序。
+常见故障：无 COM 口先查 USB 数据线与 CH340 驱动；能运行但无字查 P5、UART0 路由和 stdout；乱码查双方波特率与 PS 时钟；停在 main 前查 JTAG 连接、启动流程及 DDR 初始化；重复 main 错误查是否保留了两份示例主程序。
 
 ## 官方流程参考
 

@@ -1,7 +1,7 @@
 /* ALIENTEK Navigator XC7Z020CLG400-2, Vitis 2023.2 standalone.
  * Integrate into the generated Hello World template; retain platform.c/.h.
- * XSA must configure PS UART1 on MIO14 (RX) / MIO15 (TX).
- * BSP stdout and its baud setting must match UART1 and the PC terminal.
+ * XSA must configure PS UART0 on MIO14 (RX) / MIO15 (TX).
+ * BSP stdout and its baud setting must match UART0 and the PC terminal.
  * No PL, AXI, DMA or sensor is accessed by this program.
  */
 #include "platform.h"
