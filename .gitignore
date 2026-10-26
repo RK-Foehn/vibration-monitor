@@ -5,3 +5,15 @@ venv/
 
 results/
 .vscode/
+
+# Reproducible Vivado projects keep .xpr and .srcs; omit regenerable runs/cache.
+/fpga/vivado/*/*.cache/
+/fpga/vivado/*/*.gen/
+/fpga/vivado/*/*.hw/
+/fpga/vivado/*/*.ioplanning/
+/fpga/vivado/*/*.ip_user_files/
+/fpga/vivado/*/*.runs/
+/fpga/vivado/*/*.sim/
+
+# Local analysis and simulator scratch output.
+/tmp/
