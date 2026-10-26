@@ -1,0 +1,18 @@
+{
+  "console": "JTAG_DCC_ONLY_NOT_UART",
+  "axi_base": "0x40000000",
+  "stdout": "0xf8800000",
+  "app_build_result": 0,
+  "elf": "C:\\Users\\HUAWEI\\Documents\\Codex\\2026-10-18\\new-chat\\work\\vibration_20261026\\axi_probe_dcc\\build\\axi_probe_dcc.elf",
+  "board_validation": "NOT_RUN",
+  "uart_demo_ready": false,
+  "platform_build_result": 0,
+  "date": "2026-10-26",
+  "elf_sha256": "11d27667904d0c8936e450e5154c3ffa0621c72f38a17f3a99571abf76adecca",
+  "elf_entry": "0x00100000",
+  "ddr_scratch_address": "0x00108080",
+  "ddr_smoke_executed": false,
+  "device_id_read_on_board": false,
+  "compile_warnings": 0,
+  "header_source": "previous captain supplied v1; latest referenced paths absent from new archive"
+}

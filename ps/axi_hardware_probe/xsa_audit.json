@@ -1,0 +1,43 @@
+{
+  "xsa_sha256": "82a614a381ec2e475173d659bf1051e987f7ff8e906817eed1c47a0efcd08f10",
+  "contents": [
+    "design_1.bda",
+    "design_1.hwh",
+    "ps7_init.c",
+    "ps7_init.h",
+    "ps7_init.html",
+    "ps7_init.tcl",
+    "ps7_init_gpl.c",
+    "ps7_init_gpl.h",
+    "sysdef.xml",
+    "xsa.json",
+    "xsa.xml",
+    "zynq_vibration_system.bit"
+  ],
+  "parameters": {
+    "PCW_CRYSTAL_PERIPHERAL_FREQMHZ": "33.333333",
+    "PCW_UART0_PERIPHERAL_ENABLE": "0",
+    "PCW_UART0_UART0_IO": "<Select>",
+    "PCW_UART1_PERIPHERAL_ENABLE": "0",
+    "PCW_UART1_UART1_IO": "<Select>",
+    "PCW_UIPARAM_DDR_BUS_WIDTH": "32 Bit",
+    "PCW_UIPARAM_DDR_FREQ_MHZ": "533.333333",
+    "PCW_UIPARAM_DDR_MEMORY_TYPE": "DDR 3",
+    "PCW_UIPARAM_DDR_PARTNO": "Custom"
+  },
+  "memory_ranges": [
+    {
+      "ADDRESSBLOCK": "reg0",
+      "BASENAME": "C_BASEADDR",
+      "BASEVALUE": "0x40000000",
+      "HIGHNAME": "C_HIGHADDR",
+      "HIGHVALUE": "0x40000FFF",
+      "INSTANCE": "lis3dh_vibration_axi_0",
+      "IS_DATA": "TRUE",
+      "IS_INSTRUCTION": "TRUE",
+      "MASTERBUSINTERFACE": "M_AXI_GP0",
+      "MEMTYPE": "REGISTER",
+      "SLAVEBUSINTERFACE": "S_AXI"
+    }
+  ]
+}
