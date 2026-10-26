@@ -1,0 +1,55 @@
+UART0正式串口版AXI最小探测程序（待上板验证）
+
+使用硬件
+来源：zynq_vibration_system(1).zip 内的 zynq_vibration_system_uart0.xsa。
+必须使用带_uart0的文件，不使用同包里的旧zynq_vibration_system.xsa。
+UART0：MIO14/15、115200；AXI：0x40000000～0x40000FFF。
+CPU：ps7_cortexa9_0；OS：standalone；Vitis 2023.2 Unified。
+DDR：Custom，仍未进行实际可靠性验证。
+旧DCC诊断版本保留作历史记录，本次程序名称为axi_probe_uart。
+
+本次验证结果
+平台构建返回0，应用构建返回0，生成264564字节ARM ELF32小端可执行文件。
+入口0x00100000；DDR自有测试缓冲区位于0x00108080。
+生成BSP的stdin/stdout均为0xE0000000；ELF中的console标签确认为UART0。
+日志包含CMake警告和厂家BSP dmaps驱动中CfgPtr未使用的编译警告，
+没有阻止构建；详细警告记录保存在build_evidence.json，完整日志保留在work。
+未进行上板验证；结果中的uart_demo_ready仅表示串口版构建准备完成。
+
+本次范围
+重新生成BSP，编译真实AXI寄存器读取程序；不连接、不烧录、不运行开发板。
+代码先输出Hello和console=UART0，执行自有1KiB DDR基础读写检查，
+然后打印实际DEVICE_ID和VERSION，匹配预期后才进入窗口轮询。
+DEVICE_ID预期0x56494231；VERSION预期0x00010000。
+读取前后RESULT_SEQ一致才接受快照，最多重试8次。
+打印seq、peak、64位十六进制sumsq、count、实时status和drop_count。
+诊断状态/丢帧计数不属于窗口原子快照；平方和包含重力与直流分量。
+本轮仍是最小文本诊断格式，尚未切换现有CSV协议或添加上位机曲线。
+
+硬件测试前
+使用本次artifacts内配套bitstream、ps7_init.tcl与axi_probe_uart.elf，
+不要混用旧PS-only或旧无UART XSA的文件。
+核对供电、启动模式、JTAG和PS USB-UART连接；电脑串口设为115200、8N1、无流控。
+在调试流程完成匹配的PS/DDR初始化和PL配置，确认AXI时钟/复位就绪后，
+再加载并运行Cortex-A9 #0上的ELF。init_platform不能替代PS DDR初始化。
+先记录启动信息与ID/VERSION，随后记录静止和姿态变化的窗口数据。
+如停在BEFORE_DEVICE_ID后，优先检查PL配置、AXI时钟复位及地址；
+8次快照重试不能为卡住的总线访问提供超时保护。
+DDR检查只测试程序自有1KiB缓冲区，不代表全DDR可靠性验证。
+
+构建
+在本目录运行（指定一个不存在的新工作区）：
+& 'D:\Xilinx\Vitis\2023.2\bin\vitis.bat' -s build.py C:/Users/HUAWEI/Documents/Codex/vibration_uart0_rebuild
+不加--allow-dcc。脚本必须检查UART0启用，否则拒绝构建串口版。
+必须核对PLATFORM_BUILD_RESULT=0、APP_BUILD_RESULT=0、新生成ELF及结果JSON。
+官方vitis.bat可能掩盖Python异常退出码，不能仅看外层进程返回0。
+本次实际工作区：
+C:\Users\HUAWEI\Documents\Codex\2026-10-18\new-chat\work\vibration_uart0_20261026
+完整日志：同级work/vibration_uart0_build.log。
+配置证据和产物哈希见xsa_audit.json、build_evidence.json。
+
+交付
+artifacts/为本次本地生成的ELF、bitstream、初始化脚本，不提交生成二进制到Git。
+Git中保留XSA、源码、构建脚本、配置和验证记录；没有合并main。
+当前v1头文件沿用队长此前提供的原件，包内未提供更新版本。
+最终项目仍需真实AXI→UART→Python联调、曲线显示、正常工况阈值标定与实验记录。
