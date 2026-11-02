@@ -1,0 +1,1 @@
+#define VIB_CONSOLE "UART0"

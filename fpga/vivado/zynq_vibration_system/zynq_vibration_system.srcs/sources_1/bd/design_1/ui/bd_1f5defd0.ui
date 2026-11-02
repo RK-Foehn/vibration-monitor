@@ -1,0 +1,31 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.872292",
+   "Default View_TopLeft":"-172,-523",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 threadsafe
+#  -string -flagsOSRD
+preplace port port-id_lis3dh_cs_n_0 -pg 1 -lvl 5 -x 1440 -y -190 -defaultsOSRD
+preplace port port-id_lis3dh_sclk_0 -pg 1 -lvl 5 -x 1440 -y -170 -defaultsOSRD
+preplace port port-id_lis3dh_mosi_0 -pg 1 -lvl 5 -x 1440 -y -150 -defaultsOSRD
+preplace port port-id_lis3dh_miso_0 -pg 1 -lvl 0 -x -30 -y -140 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 2 -x 530 -y -110 -defaultsOSRD
+preplace inst lis3dh_vibration_axi_0 -pg 1 -lvl 1 -x 150 -y -170 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 4 -x 1240 -y -150 -defaultsOSRD
+preplace inst rst_ps7_0_50M -pg 1 -lvl 3 -x 910 -y -50 -defaultsOSRD
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 10 -260 300 -210 730 -190 1090
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 2 1 N -70
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 0 4 -10 -270 NJ -270 NJ -270 1080
+preplace netloc lis3dh_vibration_axi_0_lis3dh_cs_n 1 1 4 330J -260 NJ -260 1090J -270 1400J
+preplace netloc lis3dh_vibration_axi_0_lis3dh_sclk 1 1 4 320J -280 NJ -280 NJ -280 1410J
+preplace netloc lis3dh_vibration_axi_0_lis3dh_mosi 1 1 4 310J -290 NJ -290 NJ -290 1420J
+preplace netloc lis3dh_miso_0_1 1 0 1 N -140
+preplace netloc processing_system7_0_M_AXI_GP0 1 2 2 740 -210 NJ
+preplace netloc ps7_0_axi_periph_M00_AXI 1 0 5 0 -300 NJ -300 NJ -300 NJ -300 1390
+levelinfo -pg 1 -30 150 530 910 1240 1440
+pagesize -pg 1 -db -bbox -sgen -180 -370 1590 200
+"
+}
+{
+   "da_axi4_cnt":"1"
+}
