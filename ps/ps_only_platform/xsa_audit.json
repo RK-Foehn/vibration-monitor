@@ -1,0 +1,19 @@
+{
+  "source": "zynq_ps_base.zip / zynq_ps_base/system_wrapper.xsa",
+  "sha256": "1f77b3d67d51c994dd0c6d5c3f7f9af0727968f9efddc8116200d09735a15935",
+  "bitstream_present": false,
+  "board_validation": "NOT_PERFORMED; DDR candidate only",
+  "parameters": {
+    "PCW_CRYSTAL_PERIPHERAL_FREQMHZ": "33.333333",
+    "PCW_UART0_PERIPHERAL_ENABLE": "1",
+    "PCW_UART0_UART0_IO": "MIO 14 .. 15",
+    "PCW_UART0_BAUD_RATE": "115200",
+    "PCW_UART1_PERIPHERAL_ENABLE": "0",
+    "PCW_UIPARAM_DDR_BUS_WIDTH": "32 Bit",
+    "PCW_UIPARAM_DDR_FREQ_MHZ": "533.333333",
+    "PCW_UIPARAM_DDR_MEMORY_TYPE": "DDR 3",
+    "PCW_UIPARAM_DDR_PARTNO": "Custom",
+    "PCW_DDR_RAM_BASEADDR": "0x00100000",
+    "PCW_DDR_RAM_HIGHADDR": "0x3FFFFFFF"
+  }
+}

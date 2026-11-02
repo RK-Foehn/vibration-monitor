@@ -1,0 +1,62 @@
+PS/PL AXI 最小探测程序：2026-10-26
+
+重要：当前XSA无法生成要求的UART0串口演示版本
+新XSA中UART0、UART1的PERIPHERAL_ENABLE均为0，MIO字段为<Select>。
+生成BSP中没有UART外设，stdin/stdout默认ps7_coresight_comp_0（DCC），
+STDOUT_BASEADDRESS=0xF8800000。DCC是JTAG调试通道，不是USB串口。
+当前仅编译DCC调试版以验证代码及BSP；不能拿它宣称UART0或PS/PL通信成功。
+本次平台和应用构建结果均为0，axi_probe_dcc.elf已生成，无编译警告；
+ELF入口0x00100000，自有DDR测试缓冲区位于0x00108080，尚未执行。
+队长需在集成工程启用UART0、MIO14/15、115200，重新生成bitstream，
+再导出包含匹配bitstream的新XSA。不要用旧PS-only初始化文件混配本次bitstream。
+
+已核实
+XSA包含zynq_vibration_system.bit。
+生成xparameters.h中XPAR_LIS3DH_VIBRATION_AXI_0_BASEADDR=0x40000000，
+HIGHADDR=0x40000FFF。代码引用此生成宏，无地址缺失时的静默数字回退。
+DDR仍为Custom DDR3、32位、533.333333MHz；真实读写未验证。
+配置来源与哈希见xsa_audit.json；最终编译结果见build_evidence.json。
+本包没有software/include/vibration_regs.h或fpga/docs/axi_register_map_v1.md，
+当前沿用队长此前给出的v1头文件，未改动内容。
+若队长更新了协议，需要另外提供最新两文件以核对。
+
+程序流程
+启动信息 → 自有1KiB DDR缓冲区读写冒烟检查 → 配置AXI区域为强序非缓存
+→ 打印BEFORE_DEVICE_ID → Xil_In32读取ID并打印实际值
+→ ID正确才读VERSION → 二者正确后才读窗口。
+ID预期0x56494231，版本预期0x00010000；不符则停止进入窗口循环。
+窗口按前后RESULT_SEQ一致性检查，最多8次重试，500ms轮询。
+输出seq、peak、完整64位sumsq（两个8位十六进制片段）、count及实时status/drop。
+status/drop不是快照字段；数据包含重力/直流，不称为去重力振动RMS。
+本轮只做文本诊断，尚未接CSV显示程序。
+
+限制
+8次重试只能限制快照更新竞争，不能中止挂起的AXI总线读事务。
+若停在BEFORE_DEVICE_ID后，需用JTAG排查PL配置、AXI时钟复位、地址、PS初始化。
+DDR测试仅写程序自有缓存行对齐数组，四种模式异或索引，执行缓存刷新/失效；
+不会扫描覆盖程序、栈或整个DDR。通过只证明该1KiB范围的基本读写。
+程序本身从DDR启动，所以启动前DDR故障可能导致连测试信息都无法打印。
+DCC输出需要调试主机配合，未连接时可能阻塞/丢失输出；尚未验证其运行行为。
+
+重新构建
+Vitis 2023.2 Embedded使用Unified Python API，不使用Classic XSCT平台命令。
+默认命令拒绝无UART0的XSA；替换修正后的XSA后，在本目录运行：
+& 'D:\Xilinx\Vitis\2023.2\bin\vitis.bat' -s build.py C:/Users/HUAWEI/Documents/Codex/vibration_uart_rebuild
+需新工作区。仅允许当前无UART包进行DCC编译检查时追加 --allow-dcc。
+build.py创建平台后调用compile_app.py。可对已生成的专用平台单独运行：
+& 'D:\Xilinx\Vitis\2023.2\bin\vitis.bat' -s compile_app.py C:/Users/HUAWEI/Documents/Codex/2026-10-18/new-chat/work/vibration_20261026 --allow-dcc
+应用已存在时请选新工作区重建，脚本不会自动清理或覆盖既有应用。
+正式UART版名称axi_probe_uart，DCC版名称axi_probe_dcc，以免混淆。
+已验证默认入口在缺少UART0时抛出明确错误，且不创建工作区。
+注意本机vitis.bat可能把Python异常的进程退出码返回为0！必须同时核对
+日志无Traceback、*_BUILD_RESULT为0、新生成的ELF和axi_build_result.json；
+不能只看外层批处理退出码。本次平台/应用编译和ELF均已分别核实。
+
+收到开发板后（未执行）
+先解决UART XSA配置问题，核对板卡、电源、JTAG、UART连接和启动模式。
+用同一XSA内bitstream和ps7_init.tcl初始化PS/DDR/PL，在加载/运行ELF前
+确认PL时钟和复位正确；具体先后按调试启动配置及板卡状态检查。
+先记录启动、DDR冒烟、ID/VERSION，再分别记录静止与改变姿态的窗口数据。
+无bitstream配置、无AXI时钟或复位未释放时不要盲目运行寄存器读取。
+本轮没有连接开发板，没有烧录或执行程序，没有真实串口截图和传感器结果。
+验收以实际日志为准，不以编译通过代替。

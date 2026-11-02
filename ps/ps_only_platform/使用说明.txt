@@ -1,0 +1,59 @@
+领航者 XC7Z020 PS-only 候选平台：2026-10-21
+
+已完成
+使用队长 zynq_ps_base.zip 内 system_wrapper.xsa 建立 Vitis 2023.2 Unified
+平台 navigator_ps_candidate，CPU ps7_cortexa9_0，操作系统 standalone，
+域 standalone_a9。平台、Hello应用和模拟窗口应用的构建返回码均为0。
+两个程序均生成 ARM ELF32 little-endian、hard-float 可执行文件，入口0x100000。
+没有连接、下载或运行开发板，DDR和真实串口仍未验证。
+
+硬件配置核对
+UART0启用，MIO14/15，115200；UART1禁用。
+生成的 xparameters.h 中 STDOUT_BASEADDRESS/STDIN_BASEADDRESS 均为0xE0000000。
+此前把MIO14/15写成UART1的说明有误，本次以实际XSA配置为准。
+PS参考时钟33.333333MHz。DDR3，32位，533.333333MHz，Custom参数；
+地址范围0x00100000～0x3FFFFFFF。配置来自队长候选工程，不代表DDR验证通过。
+不包含bitstream，也没有振动AXI Slave；模拟程序只访问RAM模型。
+XSA摘要和SHA256见 xsa_audit.json。
+
+文件
+helloworld.c：打印 Hello Zynq 和候选DDR提示，然后等待。
+build.py：本次实际使用的官方 Unified Python API 构建脚本。
+artifacts/uart_hello.elf：本次Hello编译产物。
+artifacts/uart_mock.elf：使用已有模拟窗口代码构建，输出8列CSV。
+artifacts/ps7_init.tcl：从相同XSA提取的PS初始化脚本。
+build_evidence.json：构建返回码、入口、产物哈希与验证范围。
+artifacts为本地交付，不提交生成二进制到Git；使用脚本可重新生成。
+
+复现
+使用 Vitis 2023.2 的 vitis.bat -s，不使用旧XSCT平台创建命令。
+精简Embedded安装不含Classic IDE；旧XSCT平台流程会等待不可用的Classic后端。
+在本目录打开PowerShell，指定一个尚不存在的工作区，例如：
+& 'D:\Xilinx\Vitis\2023.2\bin\vitis.bat' -s build.py C:/Users/HUAWEI/Documents/Codex/vitis_ps_rebuild D:/vibration-monitor/ps/axi_v1_mock/src
+省略最后一个模拟源码目录参数时，只构建Hello。
+构建完成须核对 *_BUILD_RESULT 为0，并检查对应 build/*.elf；
+不能只因Python退出或创建了目录就认为成功。
+
+本次实际工作区
+C:\Users\HUAWEI\Documents\Codex\2026-10-18\new-chat\work\vitis_unified_20261021
+可用 Vitis Unified 打开该工作区；本次没有执行GUI操作。
+构建完整日志：同级work目录中的 ps_unified_build.log。
+
+下一步上板验证（尚未执行）
+1. 和队长确认真实板卡型号/修订版、供电、启动模式、JTAG和PS串口连接。
+2. 先打开电脑串口，使用115200、8N1、无流控，记录实际COM口。
+3. 使用当前XSA对应的PS初始化流程（ps7_init.tcl/ps7_init），
+   确保时钟、MIO和DDR已初始化，再向Cortex-A9 #0加载ELF并运行。
+   无bitstream的PS-only调试不应勾选要求不存在bit文件的FPGA编程步骤。
+   模板init_platform不会替代PS DDR初始化；不能只加载ELF就假设DDR可用。
+4. 先运行uart_hello.elf，保存实际Hello输出和调试日志。
+5. 再运行uart_mock.elf，用pc/uart_receiver接收并保存CSV，确认selftest=PASS。
+   Hello-only没有CSV表头，用普通终端查看或检查接收工具raw_uart.bin/events。
+6. DDR需另做受控读写/稳定性测试，避开运行程序、栈及保留内存；
+   Hello打印成功也不能替代完整DDR可靠性验证。
+本交付不是SD卡BOOT.BIN；当前未生成或验证SD启动流程。
+
+厂家参考
+本次压缩包包含Vivado工程和XSA，未提供资料盘中的Vitis示例工程。
+可继续提供厂家Vitis示例压缩包或文件路径；用于对照初始化和调试步骤，
+不会用旧参考工程覆盖队长当前XSA的DDR/UART配置。

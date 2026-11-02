@@ -1,0 +1,36 @@
+{
+  "console": "UART0",
+  "axi_base": "0x40000000",
+  "stdout": "0xe0000000",
+  "app_build_result": 0,
+  "elf": "C:\\Users\\HUAWEI\\Documents\\Codex\\2026-10-18\\new-chat\\work\\vibration_uart0_20261026\\axi_probe_uart\\build\\axi_probe_uart.elf",
+  "board_validation": "NOT_RUN",
+  "uart_demo_ready": true,
+  "platform_build_result": 0,
+  "elf_entry": "0x100000",
+  "compile_warning_lines": [
+    "CMake Warning:",
+    "CMake Warning:",
+    "C:/Users/HUAWEI/Documents/Codex/2026-10-18/new-chat/work/vibration_uart0_20261026/vibration_platform/ps7_cortexa9_0/standalone_a9/bsp/libsrc/dmaps/src/xdmaps_sinit.c:101:24: warning: unused variable 'CfgPtr' [-Wunused-variable]"
+  ],
+  "xsa_sha256": "dd88da46c16bd933818ec9101d35555f32a3ec792b8d51197d0a5c86481640c6",
+  "actual_device_id": null,
+  "ddr_test_executed": false,
+  "artifacts": [
+    {
+      "file": "axi_probe_uart.elf",
+      "bytes": 264564,
+      "sha256": "b5d077110428570f95a030a8b0c69b77974c9895ca49cfe31b8d9519a997909d"
+    },
+    {
+      "file": "ps7_init.tcl",
+      "bytes": 26573,
+      "sha256": "a8e179bbc98d7fc14a9ff1aadf879ddb0368ef9d23eea2bc8bb08259109a47a9"
+    },
+    {
+      "file": "zynq_vibration_system_uart0.bit",
+      "bytes": 4045676,
+      "sha256": "27ea72120db176ed09aa3950854bb04c67e6600a0be833e34c1fa9140d4fa1e9"
+    }
+  ]
+}
