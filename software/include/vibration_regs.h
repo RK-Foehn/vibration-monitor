@@ -1,7 +1,7 @@
 #ifndef VIBRATION_REGS_H
 #define VIBRATION_REGS_H
 
-/* AXI4-Lite register contract v1. Hardware implementation is pending.
+/* AXI4-Lite register contract v1, implemented by vibration_axi_lite_slave.sv.
  * The base address must come from the Vivado Address Editor/Vitis platform;
  * this header deliberately does not define one.
  */
