@@ -1,8 +1,6 @@
 # PC 实时监测上位机
 
-当前提交目录名为 `software/pc_monitor`（原名 `competition_demo`）。本目录独立于 FPGA/Vitis 工程，通过 UART0 接收真实 PL 窗口结果。目录改名不等于 Vitis 平台迁移已完成；PS 侧说明见 `../ps_uart_app/README.md`。
-
-本目录基于队友交付包 `F:\2026\PS_UART0_software_handoff_20261029\PS_UART0_software_handoff_20261029` 的**实板固定 CSV 协议**。`legacy/receiver.py`、`legacy/monitor.py` 是从该交付包按字节复制的原始工作版本，未修改；新仪表盘只复用其中 `receiver.parse_row` 的严格校验，不改变 ARM UART 协议。`tests/fixtures/real_uart_excerpt.txt` 是交付包中的真实原始报文摘录，保留 CRLF。不要将离线 Demo 视作板卡测试。
+通过 UART0 接收窗口结果，显示指标与曲线，保存 CSV。
 
 ## 安装与运行（Windows / Python 3）
 
@@ -54,9 +52,9 @@ seq,peak_raw,sumsq_hi_hex,sumsq_lo_hex,n,skipped,status_live_hex,drops_live
 - `analysis.py`：基线与公开阈值规则。
 - `storage.py`：CSV、事件和统计侧文件；简单跨工况比较。
 - `dashboard.py`：Tkinter + Matplotlib；串口工作线程不阻塞 GUI。
-- `legacy/`：队友原版接收器、旧显示器与 11 项原测试，保留以便对照，不覆盖其 F 盘原件。
+- `legacy/`：队友原版接收器、旧显示器与 11 项原测试，保留以便对照。
 - `tests/`：真实摘录回归、协议/状态/RMS/CSV/阈值测试。
 
-自动测试和离线 Demo 均不能替代当前电脑上的 COM 口、实际 370 电机、已接线 LIS3DH 与连续运行的实机验证。串口助手 EXE 未由本项目启动；不要关闭杀毒软件或随意安装驱动。具体录屏顺序见 `VIDEO_DEMO.md`。
+自动测试和离线 Demo 均不能替代当前电脑上的 COM 口、实际 370 电机、已接线 LIS3DH 与连续运行的实机验证。串口助手 EXE 未由本项目启动；不要关闭杀毒软件或随意安装驱动。演示采用正常电机不同调速档位对比，保持安装和传感器方向不变。
 
-2026-11-02 目录改名后回归：新增测试9项通过，原接收器11项通过（含软件回环）；本轮没有打开真实 COM 口或重新进行电机实验。提交必须保留 `legacy/`、`tests/`、requirements 和启动脚本，排除 `.venv/`、`__pycache__/`。本机旧 `.venv` 依赖系统包，移机必须按依赖清单重建，不代表已完成干净环境安装验证。
+既有两组软件测试共 20 项通过，日志在 ../../sim/results。保留 legacy、tests 和 requirements；安装时使用新的虚拟环境。

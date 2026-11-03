@@ -63,13 +63,23 @@ fpga/docs：寄存器规范及板级调试说明。
 
 fpga/vivado/zynq_vibration_system：当前 PS+PL 主工程及配套 XSA。
 
-software/ps_uart_app：Vitis 平台、ARM 裸机程序及相关配置。
+software/ps_uart_app：ARM 裸机程序源码、相关配置及 Vitis 平台与应用重建脚本。
 
 software/pc_monitor：Python 实时监测上位机、协议解析、自动测试和启动脚本。
 
 software/include：通用寄存器头文件。
 
-src：早期模拟信号、FFT、特征提取和谐波分析参考脚本，不属于当前实板实时处理链。
+build：可复现构建入口、独立 ARM 构建结果与软件检查记录；综合与实现报告保留在 fpga/vivado/zynq_vibration_system 的 .runs 目录。
+
+sim/results：现有 Python 验证日志；RTL Testbench 和黄金模型位于 fpga/sim。
+
+board：配套 bitstream、PS 初始化、应用 ELF、上板运行脚本及既有实测输出。
+
+data：实板窗口记录、两组电机实验 CSV、事件摘要与对比截图。
+
+skill：可复用联调工作流、踩坑清单、审计脚本及验证记录。
+
+report：技术报告、海报及大模型协作记录。
 
 六、开发环境与运行说明
 
@@ -104,3 +114,13 @@ STATUS 中的 sensor_overrun 是复位清除的历史覆盖锁存位，不代表
 实时数据是否更新，应结合 RESULT_SEQ 是否持续推进判断，不能仅依据接收时间或连接状态。
 
 当前系统用于运行状态变化监测与实验分析。阈值需要在固定安装和真实工况下标定，不将电机转速升高直接判断为机械故障，不宣称已实现故障分类、实时 FFT 或实测转速分析。
+
+九、比赛材料更新（2026-11-03）
+
+当前仓库即完整材料包，构建与运行步骤见 [build/README.md](build/README.md)，文件校验信息见 [sha256_manifest.json](sha256_manifest.json)。技术报告与海报位于 [report](report)，演示视频由团队另外汇总。
+
+本次补充正常运行对照与转轴受控扰动实验，两组均从低速逐步调到高速。正常对照组记录 105 个窗口，受控扰动组记录 47 个窗口；Peak 中位数分别为 66 和 606 counts，原始窗口 RMS 中位数分别为 35.59 和 464.67 counts。结果是整段调速过程统计，未记录逐档 RPM，不作同转速下的效应估计或故障分类准确率结论。原始 CSV、事件、摘要和截图见 [data/motor_comparison/README.md](data/motor_comparison/README.md)。
+
+海报位于 [report/amd_poster.pptx](report/amd_poster.pptx)，Skill 位于 [skill](skill)，模型协作记录摘录位于 [report/ai_collaboration.md](report/ai_collaboration.md)。
+
+按选题指南 3.3.5.4，src 为推荐结构而非强制目录；本仓库使用 fpga/rtl 保存 RTL，software/ps_uart_app 保存 ARM 软件，software/pc_monitor 保存上位机。第五节已给出目录对照说明。工程文件与源码采用最终提交包内容，README 沿用指定文档分支并按现有结构修正路径。

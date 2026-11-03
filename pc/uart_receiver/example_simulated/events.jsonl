@@ -1,5 +1,0 @@
-{"time_utc": "2026-10-20T13:16:12.971920+00:00", "kind": "startup", "message": "Hello Zynq"}
-{"time_utc": "2026-10-20T13:16:12.972030+00:00", "kind": "metadata", "message": "# source=SIMULATED; axis=X; unit=raw_count; no_MMIO"}
-{"time_utc": "2026-10-20T13:16:12.972080+00:00", "kind": "metadata", "message": "# selftest=PASS"}
-{"time_utc": "2026-10-20T13:16:12.972117+00:00", "kind": "header", "message": "seq,peak_raw,sumsq_hi_hex,sumsq_lo_hex,n,skipped,status_live_hex,drops_live"}
-{"time_utc": "2026-10-20T13:16:12.972597+00:00", "kind": "summary", "message": "accepted=5, rejected=0"}

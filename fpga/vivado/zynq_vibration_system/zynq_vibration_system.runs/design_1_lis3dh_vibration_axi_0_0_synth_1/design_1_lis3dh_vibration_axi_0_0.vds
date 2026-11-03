@@ -1,0 +1,456 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Mon Oct 26 10:18:54 2026
+# Process ID: 3204
+# Current directory: E:/vibration-monitor/fpga/vivado/zynq_vibration_system/zynq_vibration_system.runs/design_1_lis3dh_vibration_axi_0_0_synth_1
+# Command line: vivado.exe -log design_1_lis3dh_vibration_axi_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_lis3dh_vibration_axi_0_0.tcl
+# Log file: E:/vibration-monitor/fpga/vivado/zynq_vibration_system/zynq_vibration_system.runs/design_1_lis3dh_vibration_axi_0_0_synth_1/design_1_lis3dh_vibration_axi_0_0.vds
+# Journal file: E:/vibration-monitor/fpga/vivado/zynq_vibration_system/zynq_vibration_system.runs/design_1_lis3dh_vibration_axi_0_0_synth_1\vivado.jou
+# Running On: LAPTOP-SINKEN, OS: Windows, CPU Frequency: 2419 MHz, CPU Physical cores: 16, Host memory: 16890 MB
+#-----------------------------------------------------------
+source design_1_lis3dh_vibration_axi_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 472.801 ; gain = 182.086
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/AMD/Vivado/2023.2/data/ip'.
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is e:/vibration-monitor/fpga/vivado/zynq_vibration_system/zynq_vibration_system.cache/ip 
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: design_1_lis3dh_vibration_axi_0_0
+Command: synth_design -top design_1_lis3dh_vibration_axi_0_0 -part xc7z020clg400-2 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-2
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 5644
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1346.344 ; gain = 439.723
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'design_1_lis3dh_vibration_axi_0_0' [e:/vibration-monitor/fpga/vivado/zynq_vibration_system/zynq_vibration_system.gen/sources_1/bd/design_1/ip/design_1_lis3dh_vibration_axi_0_0/synth/design_1_lis3dh_vibration_axi_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'lis3dh_vibration_axi_wrapper' [E:/vibration-monitor/fpga/rtl/lis3dh_vibration_axi_wrapper.v:6]
+INFO: [Synth 8-6157] synthesizing module 'lis3dh_vibration_axi_peripheral' [E:/vibration-monitor/fpga/rtl/lis3dh_vibration_axi_peripheral.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'lis3dh_xyz_acquisition' [E:/vibration-monitor/fpga/rtl/lis3dh_xyz_acquisition.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'lis3dh_spi_controller' [E:/vibration-monitor/fpga/rtl/lis3dh_spi_controller.sv:15]
+	Parameter HALF_PERIOD_CYCLES bound to: 25 - type: integer 
+INFO: [Synth 8-226] default block is never used [E:/vibration-monitor/fpga/rtl/lis3dh_spi_controller.sv:74]
+INFO: [Synth 8-6155] done synthesizing module 'lis3dh_spi_controller' (0#1) [E:/vibration-monitor/fpga/rtl/lis3dh_spi_controller.sv:15]
+INFO: [Synth 8-6157] synthesizing module 'lis3dh_spi_burst_reader' [E:/vibration-monitor/fpga/rtl/lis3dh_spi_burst_reader.sv:7]
+	Parameter HALF_PERIOD_CYCLES bound to: 25 - type: integer 
+INFO: [Synth 8-226] default block is never used [E:/vibration-monitor/fpga/rtl/lis3dh_spi_burst_reader.sv:52]
+INFO: [Synth 8-6155] done synthesizing module 'lis3dh_spi_burst_reader' (0#1) [E:/vibration-monitor/fpga/rtl/lis3dh_spi_burst_reader.sv:7]
+INFO: [Synth 8-6155] done synthesizing module 'lis3dh_xyz_acquisition' (0#1) [E:/vibration-monitor/fpga/rtl/lis3dh_xyz_acquisition.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'vibration_processing_pipeline' [E:/vibration-monitor/fpga/rtl/vibration_processing_pipeline.sv:8]
+	Parameter SAMPLE_WIDTH bound to: 16 - type: integer 
+	Parameter FIFO_DEPTH bound to: 8 - type: integer 
+	Parameter WINDOW_SIZE bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'vibration_frame_fifo' [E:/vibration-monitor/fpga/rtl/vibration_frame_fifo.sv:11]
+	Parameter SAMPLE_WIDTH bound to: 16 - type: integer 
+	Parameter FIFO_DEPTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'vibration_frame_fifo' (0#1) [E:/vibration-monitor/fpga/rtl/vibration_frame_fifo.sv:11]
+INFO: [Synth 8-6157] synthesizing module 'vibration_window_features' [E:/vibration-monitor/fpga/rtl/vibration_window_features.sv:8]
+	Parameter SAMPLE_WIDTH bound to: 16 - type: integer 
+	Parameter WINDOW_SIZE bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'vibration_window_features' (0#1) [E:/vibration-monitor/fpga/rtl/vibration_window_features.sv:8]
+INFO: [Synth 8-6155] done synthesizing module 'vibration_processing_pipeline' (0#1) [E:/vibration-monitor/fpga/rtl/vibration_processing_pipeline.sv:8]
+INFO: [Synth 8-6157] synthesizing module 'vibration_axi_lite_slave' [E:/vibration-monitor/fpga/rtl/vibration_axi_lite_slave.sv:6]
+INFO: [Synth 8-6155] done synthesizing module 'vibration_axi_lite_slave' (0#1) [E:/vibration-monitor/fpga/rtl/vibration_axi_lite_slave.sv:6]
+INFO: [Synth 8-6155] done synthesizing module 'lis3dh_vibration_axi_peripheral' (0#1) [E:/vibration-monitor/fpga/rtl/lis3dh_vibration_axi_peripheral.sv:7]
+INFO: [Synth 8-6155] done synthesizing module 'lis3dh_vibration_axi_wrapper' (0#1) [E:/vibration-monitor/fpga/rtl/lis3dh_vibration_axi_wrapper.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_lis3dh_vibration_axi_0_0' (0#1) [e:/vibration-monitor/fpga/vivado/zynq_vibration_system/zynq_vibration_system.gen/sources_1/bd/design_1/ip/design_1_lis3dh_vibration_axi_0_0/synth/design_1_lis3dh_vibration_axi_0_0.v:53]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'sensor'. This will prevent further optimization [E:/vibration-monitor/fpga/rtl/lis3dh_vibration_axi_peripheral.sv:43]
+WARNING: [Synth 8-7137] Register frame_memory_reg in module vibration_frame_fifo has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
+WARNING: [Synth 8-4767] Trying to implement RAM 'frame_memory_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
+Reason is one or more of the following :
+	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
+RAM "frame_memory_reg" dissolved into registers
+WARNING: [Synth 8-7129] Port s_axi_awprot[2] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awprot[1] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awprot[0] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[31] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[30] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[29] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[28] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[27] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[26] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[25] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[24] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[23] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[22] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[21] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[20] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[19] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[18] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[17] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[16] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[15] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[14] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[13] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[12] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[11] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[10] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[9] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[8] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[7] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[6] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[5] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[4] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[3] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[2] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[1] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[0] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[3] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[2] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[1] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[0] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arprot[2] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arprot[1] in module vibration_axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arprot[0] in module vibration_axi_lite_slave is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1464.406 ; gain = 557.785
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1464.406 ; gain = 557.785
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1464.406 ; gain = 557.785
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1464.406 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1563.180 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.058 . Memory (MB): peak = 1563.188 ; gain = 0.008
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1563.188 ; gain = 656.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1563.188 ; gain = 656.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1563.188 ; gain = 656.566
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'lis3dh_spi_controller'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'lis3dh_spi_burst_reader'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'lis3dh_xyz_acquisition'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                             0001 |                               00
+        STATE_DRIVE_FALL |                             0010 |                               01
+       STATE_SAMPLE_RISE |                             0100 |                               10
+           STATE_CS_HOLD |                             1000 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'lis3dh_spi_controller'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                               00
+              DRIVE_FALL |                               01 |                               01
+             SAMPLE_RISE |                               10 |                               10
+                 CS_HOLD |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'lis3dh_spi_burst_reader'
+INFO: [Synth 8-6159] Found Keep on FSM register 'state_reg' in module 'lis3dh_xyz_acquisition', re-encoding will not be performed
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+*
+               BOOT_WAIT |                             0000 |                             0000
+               WHO_START |                             0001 |                             0001
+                WHO_WAIT |                             0010 |                             0010
+              CFG4_START |                             0011 |                             0011
+               CFG4_WAIT |                             0100 |                             0100
+              CFG1_START |                             0101 |                             0101
+               CFG1_WAIT |                             0110 |                             0110
+             SETTLE_WAIT |                             0111 |                             0111
+               POLL_WAIT |                             1000 |                             1000
+            STATUS_START |                             1001 |                             1001
+             STATUS_WAIT |                             1010 |                             1010
+             BURST_START |                             1011 |                             1011
+              BURST_WAIT |                             1100 |                             1100
+           OUTPUT_SAMPLE |                             1101 |                             1101
+                   FATAL |                             1110 |                             1110
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1563.188 ; gain = 656.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   35 Bit       Adders := 1     
+	   2 Input   32 Bit       Adders := 2     
+	   2 Input   16 Bit       Adders := 1     
+	   2 Input    6 Bit       Adders := 1     
+	   2 Input    5 Bit       Adders := 4     
+	   2 Input    4 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 2     
++---Registers : 
+	               64 Bit    Registers := 1     
+	               48 Bit    Registers := 10    
+	               35 Bit    Registers := 1     
+	               32 Bit    Registers := 3     
+	               16 Bit    Registers := 8     
+	               12 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 6     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 22    
++---Muxes : 
+	   4 Input   48 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 6     
+	  10 Input   32 Bit        Muxes := 1     
+	   4 Input   16 Bit        Muxes := 2     
+	   2 Input   16 Bit        Muxes := 11    
+	   2 Input   12 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 2     
+	   4 Input    6 Bit        Muxes := 2     
+	   4 Input    5 Bit        Muxes := 3     
+	   2 Input    5 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 11    
+	  16 Input    4 Bit        Muxes := 1     
+	  11 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 2     
+	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 3     
+	   3 Input    2 Bit        Muxes := 1     
+	  11 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 25    
+	   4 Input    1 Bit        Muxes := 25    
+	  16 Input    1 Bit        Muxes := 9     
+	   3 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP inst/peripheral/processing/x_axis_features/sample_square_full, operation Mode is: A*B.
+DSP Report: operator inst/peripheral/processing/x_axis_features/sample_square_full is absorbed into DSP inst/peripheral/processing/x_axis_features/sample_square_full.
+WARNING: [Synth 8-7129] Port s_axi_awprot[2] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awprot[1] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_awprot[0] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[31] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[30] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[29] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[28] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[27] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[26] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[25] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[24] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[23] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[22] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[21] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[20] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[19] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[18] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[17] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[16] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[15] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[14] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[13] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[12] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[11] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[10] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[9] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[8] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[7] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[6] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[5] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[4] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[3] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[2] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[1] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[0] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[3] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[2] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[1] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[0] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arprot[2] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arprot[1] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_arprot[0] in module design_1_lis3dh_vibration_axi_0_0 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1563.188 ; gain = 656.566
+---------------------------------------------------------------------------------
+ Sort Area is  inst/peripheral/processing/x_axis_features/sample_square_full_0 : 0 0 : 1946 1946 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++--------------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name               | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|vibration_window_features | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++--------------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1563.188 ; gain = 656.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1563.188 ; gain = 656.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1563.188 ; gain = 656.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1563.188 ; gain = 656.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1563.188 ; gain = 656.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1563.188 ; gain = 656.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1563.188 ; gain = 656.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1563.188 ; gain = 656.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1563.188 ; gain = 656.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++--------------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name               | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|vibration_window_features | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++--------------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |CARRY4  |    48|
+|2     |DSP48E1 |     1|
+|3     |LUT1    |    22|
+|4     |LUT2    |   118|
+|5     |LUT3    |   164|
+|6     |LUT4    |    45|
+|7     |LUT5    |    93|
+|8     |LUT6    |   231|
+|9     |MUXF7   |    16|
+|10    |FDCE    |   528|
+|11    |FDPE    |     5|
+|12    |FDRE    |   128|
++------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1563.188 ; gain = 656.566
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 43 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 1563.188 ; gain = 557.785
+Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1563.188 ; gain = 656.566
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1563.188 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 65 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1563.188 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 48b587d0
+INFO: [Common 17-83] Releasing license: Synthesis
+48 Infos, 88 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:34 . Memory (MB): peak = 1563.188 ; gain = 1076.023
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1563.188 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'E:/vibration-monitor/fpga/vivado/zynq_vibration_system/zynq_vibration_system.runs/design_1_lis3dh_vibration_axi_0_0_synth_1/design_1_lis3dh_vibration_axi_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_lis3dh_vibration_axi_0_0, cache-ID = fbe7223cf7ab1d58
+INFO: [Coretcl 2-1174] Renamed 9 cell refs.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1563.188 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'E:/vibration-monitor/fpga/vivado/zynq_vibration_system/zynq_vibration_system.runs/design_1_lis3dh_vibration_axi_0_0_synth_1/design_1_lis3dh_vibration_axi_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file design_1_lis3dh_vibration_axi_0_0_utilization_synth.rpt -pb design_1_lis3dh_vibration_axi_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 26 10:19:38 2026...

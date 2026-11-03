@@ -1,9 +1,0 @@
-Hello Zynq
-# source=SIMULATED; axis=X; unit=raw_count; no_MMIO
-# selftest=PASS
-seq,peak_raw,sumsq_hi_hex,sumsq_lo_hex,n,skipped,status_live_hex,drops_live
-1,32768,00000000,8029b981,16,0,00000011,0
-2,32768,00000000,8029b981,16,0,00000011,0
-3,32768,00000000,8029b981,16,0,00000011,0
-4,32768,00000000,8029b981,16,0,00000011,0
-5,32768,00000000,8029b981,16,0,00000011,0

@@ -1,0 +1,13 @@
+{
+  "README.md": "5492b2c5bf394fa5d4ffafd6135c01fe45a28ba93e8abe702909799d69a52251",
+  "references/debug_cases.md": "e649fce1a29dc1e5f0ecfd5a3532522f2a553ad44bd5d216597d9e231a512e8f",
+  "references/handoff_checks.md": "624b26ec4dc92d77908fb0c26313572ba1f7fb786932d9e9d4f9a3e770f8dad4",
+  "references/integration_cases.md": "7f5e03208830584b8df45289dfb2b094fea9b62e466982efef417c3b33a79a27",
+  "references/merge_notes.md": "c8bb8488d837ecb023543085efcacaa647886e1a4156e56118b9661ea8c067ec",
+  "references/reference_profile.md": "b3453960cc74ea7a8dfba7331de8eebffed5bcbc67529728b0a203275b8a7dab",
+  "references/source_ledger.md": "fa84092131f1f028cc75d074e66365d576ce03548bebe3240498aa4a96a8e82c",
+  "references/task_workflows.md": "14e3fe3207f211a60dfe66e838f41e1289b373d0fefd69016b44f5f9eee5b18a",
+  "scripts/audit_handoff.py": "d781fd41f10e1ee30078fb99c77ae6e9e62723699b7523a8aa2f4099d7581f51",
+  "SKILL.md": "2890e98b56b95a800e40b7555bc58d6ae01763fb6a333cc91630f237b08f0892",
+  "validation.md": "c47eba36ad8a5e100de759d3eb61ab752f2aad352c4a60d1921cb48d4f7c0526"
+}

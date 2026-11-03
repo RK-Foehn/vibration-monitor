@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "xpr_references_checked": 10,
+  "hardware": {
+    "uart0_enabled": true,
+    "contains_bitstream": true,
+    "xsa_sha256": "dd88da46c16bd933818ec9101d35555f32a3ec792b8d51197d0a5c86481640c6"
+  },
+  "errors": [],
+  "scope": "static_only_not_board_validation"
+}

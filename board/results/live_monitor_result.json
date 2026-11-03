@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-10-26T20:29:20.354790",
+  "build_result": 0,
+  "receiver_tests_passed": 11,
+  "live_csv": "C:\\Users\\HUAWEI\\Documents\\Codex\\2026-10-18\\new-chat\\outputs\\pc_live_monitor\\captures\\20261026_202705_742722\\windows.csv",
+  "valid_rows_at_check": 251,
+  "source": [
+    "PL"
+  ],
+  "last_row": {
+    "received_utc": "2026-10-26T12:29:20.229386+00:00",
+    "session": "0",
+    "source": "PL",
+    "seq": "1025",
+    "peak_raw": "25",
+    "sum_squares_raw": "6525",
+    "sample_count": "16",
+    "ps_skipped": "2",
+    "pc_sequence_delta": "3",
+    "status_live": "21",
+    "drops_live": "0",
+    "warnings": "sequence_gap;hardware_diagnostic_flags"
+  },
+  "elf_sha256": "31a7b8c7515ce2bc42f0c1b169b056f792f3c12193e124db24f51905328a950a",
+  "visual_check": "live Tk window inspected: metrics, curves, warning, save path visible",
+  "unresolved": [
+    "sensor_overrun",
+    "motor thresholds uncalibrated",
+    "full DDR qualification not performed"
+  ]
+}

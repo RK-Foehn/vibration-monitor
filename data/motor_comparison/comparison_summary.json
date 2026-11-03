@@ -1,0 +1,16 @@
+[
+  {
+    "file": "1.csv",
+    "windows": 105,
+    "peak_median": 66,
+    "peak_mean": 97.81904761904762,
+    "raw_rms_median": 35.590554
+  },
+  {
+    "file": "3.csv",
+    "windows": 47,
+    "peak_median": 606,
+    "peak_mean": 940.7659574468086,
+    "raw_rms_median": 464.67112
+  }
+]

@@ -1,0 +1,64 @@
+Hello Zynq
+# AXI hardware probe; console=UART0
+# DDR candidate; no hardware validation claimed
+# DDR_SMOKE_BEGIN address=0x00108080 bytes=1024
+# DDR_SMOKE_PASS limited_1KiB_only
+# BEFORE_DEVICE_ID base=0x40000000
+DEVICE_ID=0x56494231 expected=0x56494231
+# BEFORE_VERSION
+VERSION=0x00010000 expected=0x00010000
+# PROBE_ID_VERSION_PASS; source=PL; axis=X; unit=raw_count
+seq=1 peak=130 sumsq=0x000000000003B62A count=16 status_live=0x00000015 drop_count_live=0
+seq=4 peak=129 sumsq=0x000000000003CA3D count=16 status_live=0x00000015 drop_count_live=0
+seq=7 peak=134 sumsq=0x000000000003DEDE count=16 status_live=0x00000015 drop_count_live=0
+seq=10 peak=132 sumsq=0x000000000003E613 count=16 status_live=0x00000015 drop_count_live=0
+seq=13 peak=127 sumsq=0x000000000003B01C count=16 status_live=0x00000015 drop_count_live=0
+seq=16 peak=131 sumsq=0x000000000003DC03 count=16 status_live=0x00000015 drop_count_live=0
+seq=19 peak=133 sumsq=0x000000000003DEB4 count=16 status_live=0x00000015 drop_count_live=0
+seq=23 peak=133 sumsq=0x000000000003D90E count=16 status_live=0x00000015 drop_count_live=0
+seq=26 peak=130 sumsq=0x000000000003CF76 count=16 status_live=0x00000015 drop_count_live=0
+seq=29 peak=134 sumsq=0x000000000003E2D8 count=16 status_live=0x00000015 drop_count_live=0
+seq=32 peak=136 sumsq=0x000000000004031A count=16 status_live=0x00000015 drop_count_live=0
+seq=35 peak=134 sumsq=0x000000000003F6CC count=16 status_live=0x00000015 drop_count_live=0
+seq=38 peak=136 sumsq=0x000000000003F6F8 count=16 status_live=0x00000015 drop_count_live=0
+seq=41 peak=135 sumsq=0x000000000003E621 count=16 status_live=0x00000015 drop_count_live=0
+seq=44 peak=132 sumsq=0x000000000003D42F count=16 status_live=0x00000015 drop_count_live=0
+seq=48 peak=130 sumsq=0x000000000003C85D count=16 status_live=0x00000015 drop_count_live=0
+seq=51 peak=137 sumsq=0x00000000000413A5 count=16 status_live=0x00000015 drop_count_live=0
+seq=54 peak=136 sumsq=0x0000000000041FB9 count=16 status_live=0x00000015 drop_count_live=0
+seq=57 peak=127 sumsq=0x000000000003B887 count=16 status_live=0x00000015 drop_count_live=0
+seq=60 peak=134 sumsq=0x0000000000040284 count=16 status_live=0x00000015 drop_count_live=0
+seq=63 peak=134 sumsq=0x000000000003D817 count=16 status_live=0x00000015 drop_count_live=0
+seq=66 peak=133 sumsq=0x000000000003D01C count=16 status_live=0x00000015 drop_count_live=0
+seq=69 peak=132 sumsq=0x000000000003C7B6 count=16 status_live=0x00000015 drop_count_live=0
+seq=72 peak=130 sumsq=0x000000000003BEEB count=16 status_live=0x00000015 drop_count_live=0
+seq=76 peak=131 sumsq=0x000000000003BD4D count=16 status_live=0x00000015 drop_count_live=0
+seq=79 peak=129 sumsq=0x000000000003E76D count=16 status_live=0x00000015 drop_count_live=0
+seq=82 peak=132 sumsq=0x000000000003D368 count=16 status_live=0x00000015 drop_count_live=0
+seq=85 peak=133 sumsq=0x000000000003CEAB count=16 status_live=0x00000015 drop_count_live=0
+seq=88 peak=136 sumsq=0x000000000003EEEA count=16 status_live=0x00000015 drop_count_live=0
+seq=91 peak=133 sumsq=0x000000000003DFF1 count=16 status_live=0x00000015 drop_count_live=0
+seq=94 peak=132 sumsq=0x000000000003CF70 count=16 status_live=0x00000015 drop_count_live=0
+seq=97 peak=130 sumsq=0x000000000003B096 count=16 status_live=0x00000015 drop_count_live=0
+seq=101 peak=130 sumsq=0x000000000003B1EF count=16 status_live=0x00000015 drop_count_live=0
+seq=104 peak=134 sumsq=0x000000000003E3C4 count=16 status_live=0x00000015 drop_count_live=0
+seq=107 peak=135 sumsq=0x000000000003EA25 count=16 status_live=0x00000015 drop_count_live=0
+seq=110 peak=132 sumsq=0x000000000003D875 count=16 status_live=0x00000015 drop_count_live=0
+seq=113 peak=134 sumsq=0x000000000003DB0E count=16 status_live=0x00000015 drop_count_live=0
+seq=116 peak=132 sumsq=0x000000000003E2C8 count=16 status_live=0x00000015 drop_count_live=0
+seq=119 peak=136 sumsq=0x000000000003D89F count=16 status_live=0x00000015 drop_count_live=0
+seq=122 peak=134 sumsq=0x000000000003C881 count=16 status_live=0x00000015 drop_count_live=0
+seq=125 peak=129 sumsq=0x000000000003DAA0 count=16 status_live=0x00000015 drop_count_live=0
+seq=129 peak=131 sumsq=0x000000000003C857 count=16 status_live=0x00000015 drop_count_live=0
+seq=132 peak=128 sumsq=0x000000000003C0A1 count=16 status_live=0x00000015 drop_count_live=0
+seq=135 peak=130 sumsq=0x000000000003EBC1 count=16 status_live=0x00000015 drop_count_live=0
+seq=138 peak=127 sumsq=0x000000000003BBCA count=16 status_live=0x00000015 drop_count_live=0
+seq=141 peak=135 sumsq=0x000000000004007E count=16 status_live=0x00000015 drop_count_live=0
+seq=144 peak=129 sumsq=0x000000000003C57C count=16 status_live=0x00000015 drop_count_live=0
+seq=147 peak=132 sumsq=0x000000000003E2F6 count=16 status_live=0x00000015 drop_count_live=0
+seq=150 peak=128 sumsq=0x00000000000397EA count=16 status_live=0x00000015 drop_count_live=0
+seq=153 peak=134 sumsq=0x000000000003D4AF count=16 status_live=0x00000015 drop_count_live=0
+seq=157 peak=133 sumsq=0x000000000003F777 count=16 status_live=0x00000015 drop_count_live=0
+seq=160 peak=131 sumsq=0x000000000003D924 count=16 status_live=0x00000015 drop_count_live=0
+seq=163 peak=131 sumsq=0x000000000003DAC0 count=16 status_live=0x00000015 drop_count_live=0
+seq=166 peak=135 sumsq=0x0000000000040074 count=16 status_live=0x00000015 drop_count_live=0

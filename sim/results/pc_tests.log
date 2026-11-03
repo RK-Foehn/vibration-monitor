@@ -1,0 +1,14 @@
+test_requires_real_baseline_and_adjusts_only_after_completion (test_protocol.CalibrationTests.test_requires_real_baseline_and_adjusts_only_after_completion) ... ok
+test_real_uart_excerpt_from_teammate_handoff (test_protocol.ProtocolTests.test_real_uart_excerpt_from_teammate_handoff) ... ok
+test_sequence_gap_wrap_duplicate_and_reset (test_protocol.ProtocolTests.test_sequence_gap_wrap_duplicate_and_reset) ... ok
+test_startup_repeated_header_and_parse_recovery (test_protocol.ProtocolTests.test_startup_repeated_header_and_parse_recovery) ... ok
+test_strict_sender_ranges_and_status_bits (test_protocol.ProtocolTests.test_strict_sender_ranges_and_status_bits) ... ok
+test_csv_all_fields_and_event_summary (test_storage.StorageTests.test_csv_all_fields_and_event_summary) ... ok
+test_mixed_real_and_demo_comparison_is_flagged (test_storage.StorageTests.test_mixed_real_and_demo_comparison_is_flagged) ... ok
+test_teammate_receiver_csv_compatibility (test_storage.StorageTests.test_teammate_receiver_csv_compatibility) ... ok
+test_two_condition_comparison_and_source_warning (test_storage.StorageTests.test_two_condition_comparison_and_source_warning) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.182s
+
+OK

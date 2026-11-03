@@ -1,0 +1,8 @@
+{
+  "build": "PASS",
+  "xsa_sha256": "dd88da46c16bd933818ec9101d35555f32a3ec792b8d51197d0a5c86481640c6",
+  "elf_sha256": "ac424fd107ee84928381a922bb1e25364883064af442275dc1e35d843c432114",
+  "source_sha256": "cfa0097998ba1672f268420a169a2d1129cd85b08439e64efb3224d8375d3c5a",
+  "elf": "C:\\Users\\HUAWEI\\Documents\\Codex\\vm_verify_20261103\\workspace_actual\\vibration_uart_app\\build\\vibration_uart_app.elf",
+  "board_test_this_build": "NOT_RUN"
+}

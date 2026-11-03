@@ -1,0 +1,25 @@
+{
+  "device_id_pass": true,
+  "version_pass": true,
+  "ddr_1KiB_pass": true,
+  "captured_windows": 54,
+  "first": [
+    "1",
+    "130",
+    "0x000000000003B62A",
+    "16",
+    "0x00000015",
+    "0"
+  ],
+  "last": [
+    "166",
+    "135",
+    "0x0000000000040074",
+    "16",
+    "0x00000015",
+    "0"
+  ],
+  "sensor_overrun_observed": true,
+  "pose_change_test": "NOT_RUN",
+  "full_ddr_test": "NOT_RUN"
+}
