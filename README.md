@@ -104,3 +104,13 @@ STATUS 中的 sensor_overrun 是复位清除的历史覆盖锁存位，不代表
 实时数据是否更新，应结合 RESULT_SEQ 是否持续推进判断，不能仅依据接收时间或连接状态。
 
 当前系统用于运行状态变化监测与实验分析。阈值需要在固定安装和真实工况下标定，不将电机转速升高直接判断为机械故障，不宣称已实现故障分类、实时 FFT 或实测转速分析。
+
+九、比赛材料更新（2026-11-03）
+
+完整材料包和校验信息见 [docs/submission/README.md](docs/submission/README.md)。最终技术报告和视频由团队另外汇总。
+
+本次补充正常运行对照与转轴受控扰动实验，两组均从低速逐步调到高速。正常对照组记录 105 个窗口，受控扰动组记录 47 个窗口；Peak 中位数分别为 66 和 606 counts，原始窗口 RMS 中位数分别为 35.59 和 464.67 counts。结果是整段调速过程统计，未记录逐档 RPM，不作同转速下的效应估计或故障分类准确率结论。原始 CSV、事件、摘要和截图见 [data/motor_comparison/README.md](data/motor_comparison/README.md)。
+
+中英文海报位于 [docs/posters](docs/posters)，Skill 位于 [skill](skill)，模型协作记录摘录位于 [report/ai_collaboration.md](report/ai_collaboration.md)。英文海报按 AMD 模板保留匿名格式。
+
+按选题指南 3.3.5.4，src 为推荐结构而非强制目录；本仓库使用 fpga/rtl 保存 RTL，software/ps_uart_app 保存 ARM 软件，software/pc_monitor 保存上位机。第五节已给出目录说明。本次未修改现有运行程序或硬件工程。
